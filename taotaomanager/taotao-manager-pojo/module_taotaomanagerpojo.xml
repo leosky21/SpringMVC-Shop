@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_taotaomanagerpojo" default="compile.module.taotaomanagerpojo">
+  <dirname property="module.taotaomanagerpojo.basedir" file="${ant.file.module_taotaomanagerpojo}"/>
+  
+  <property name="module.jdk.home.taotaomanagerpojo" value="${jdk.home.1.8}"/>
+  <property name="module.jdk.bin.taotaomanagerpojo" value="${jdk.bin.1.8}"/>
+  <property name="module.jdk.classpath.taotaomanagerpojo" value="jdk.classpath.1.8"/>
+  
+  <property name="compiler.args.taotaomanagerpojo" value="-encoding UTF-8 -source 7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="taotaomanagerpojo.output.dir" value="${module.taotaomanagerpojo.basedir}/target/classes"/>
+  <property name="taotaomanagerpojo.testoutput.dir" value="${module.taotaomanagerpojo.basedir}/target/test-classes"/>
+  
+  <path id="taotaomanagerpojo.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="taotaomanagerpojo.module.production.classpath">
+    <path refid="${module.jdk.classpath.taotaomanagerpojo}"/>
+    <pathelement location="${taotaocommon.output.dir}"/>
+    <path refid="library.maven:_joda-time:joda-time:2.5.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.3.2.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:1.3.2.classpath"/>
+    <path refid="library.maven:_commons-net:commons-net:3.3.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.4.2.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.4.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.4.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.3.5.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.3.2.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.1.3.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.6.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-log4j12:1.6.4.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.6.4.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+  </path>
+  
+  <path id="taotaomanagerpojo.runtime.production.module.classpath">
+    <pathelement location="${taotaomanagerpojo.output.dir}"/>
+    <path refid="taotaocommon.runtime.production.module.classpath"/>
+    <path refid="library.maven:_joda-time:joda-time:2.5.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.3.2.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:1.3.2.classpath"/>
+    <path refid="library.maven:_commons-net:commons-net:3.3.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.4.2.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.4.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.4.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.3.5.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.3.2.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.1.3.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.6.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-log4j12:1.6.4.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.6.4.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+  </path>
+  
+  <path id="taotaomanagerpojo.module.classpath">
+    <path refid="${module.jdk.classpath.taotaomanagerpojo}"/>
+    <pathelement location="${taotaomanagerpojo.output.dir}"/>
+    <path refid="library.maven:_junit:junit:4.11.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <pathelement location="${taotaocommon.testoutput.dir}"/>
+    <pathelement location="${taotaocommon.output.dir}"/>
+    <path refid="library.maven:_joda-time:joda-time:2.5.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.3.2.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:1.3.2.classpath"/>
+    <path refid="library.maven:_commons-net:commons-net:3.3.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.4.2.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.4.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.4.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.3.5.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.3.2.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.1.3.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.6.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-log4j12:1.6.4.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.6.4.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+  </path>
+  
+  <path id="taotaomanagerpojo.runtime.module.classpath">
+    <pathelement location="${taotaomanagerpojo.testoutput.dir}"/>
+    <pathelement location="${taotaomanagerpojo.output.dir}"/>
+    <path refid="library.maven:_junit:junit:4.11.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="taotaocommon.runtime.module.classpath"/>
+    <path refid="library.maven:_joda-time:joda-time:2.5.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.3.2.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:1.3.2.classpath"/>
+    <path refid="library.maven:_commons-net:commons-net:3.3.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.4.2.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.4.0.classpath"/>
+    <path refid="library.maven:_com.fasterxml.jackson.core:jackson-core:2.4.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.3.5.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.3.2.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.1.3.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.6.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-log4j12:1.6.4.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.6.4.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.taotaomanagerpojo">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.taotaomanagerpojo">
+    <patternset refid="excluded.from.module.taotaomanagerpojo"/>
+  </patternset>
+  
+  <path id="taotaomanagerpojo.module.sourcepath">
+    <dirset dir="${module.taotaomanagerpojo.basedir}">
+      <include name="src/main/java"/>
+    </dirset>
+  </path>
+  
+  <path id="taotaomanagerpojo.module.test.sourcepath">
+    <dirset dir="${module.taotaomanagerpojo.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.taotaomanagerpojo" depends="compile.module.taotaomanagerpojo.production,compile.module.taotaomanagerpojo.tests" description="Compile module taotaomanagerpojo"/>
+  
+  <target name="compile.module.taotaomanagerpojo.production" depends="register.custom.compilers,compile.module.taotaocommon" description="Compile module taotaomanagerpojo; production classes">
+    <mkdir dir="${taotaomanagerpojo.output.dir}"/>
+    <javac2 destdir="${taotaomanagerpojo.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.taotaomanagerpojo}/javac">
+      <compilerarg line="${compiler.args.taotaomanagerpojo}"/>
+      <bootclasspath refid="taotaomanagerpojo.module.bootclasspath"/>
+      <classpath refid="taotaomanagerpojo.module.production.classpath"/>
+      <src refid="taotaomanagerpojo.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.taotaomanagerpojo"/>
+    </javac2>
+    
+    <copy todir="${taotaomanagerpojo.output.dir}">
+      <fileset dir="${module.taotaomanagerpojo.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.taotaomanagerpojo.tests" depends="register.custom.compilers,compile.module.taotaomanagerpojo.production" description="compile module taotaomanagerpojo; test classes" unless="skip.tests">
+    <mkdir dir="${taotaomanagerpojo.testoutput.dir}"/>
+    <javac2 destdir="${taotaomanagerpojo.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.taotaomanagerpojo}/javac">
+      <compilerarg line="${compiler.args.taotaomanagerpojo}"/>
+      <bootclasspath refid="taotaomanagerpojo.module.bootclasspath"/>
+      <classpath refid="taotaomanagerpojo.module.classpath"/>
+      <src refid="taotaomanagerpojo.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.taotaomanagerpojo"/>
+    </javac2>
+    
+    <copy todir="${taotaomanagerpojo.testoutput.dir}">
+      <fileset dir="${module.taotaomanagerpojo.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.taotaomanagerpojo" description="cleanup module">
+    <delete dir="${taotaomanagerpojo.output.dir}"/>
+    <delete dir="${taotaomanagerpojo.testoutput.dir}"/>
+  </target>
+</project>

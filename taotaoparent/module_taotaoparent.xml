@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_taotaoparent" default="compile.module.taotaoparent">
+  <dirname property="module.taotaoparent.basedir" file="${ant.file.module_taotaoparent}"/>
+  
+  <property name="module.jdk.home.taotaoparent" value="${jdk.home.1.8}"/>
+  <property name="module.jdk.bin.taotaoparent" value="${jdk.bin.1.8}"/>
+  <property name="module.jdk.classpath.taotaoparent" value="jdk.classpath.1.8"/>
+  
+  <property name="compiler.args.taotaoparent" value="-encoding UTF-8 -source 7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="taotaoparent.output.dir" value="${module.taotaoparent.basedir}/target/classes"/>
+  <property name="taotaoparent.testoutput.dir" value="${module.taotaoparent.basedir}/target/test-classes"/>
+  
+  <path id="taotaoparent.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="taotaoparent.module.production.classpath">
+    <path refid="${module.jdk.classpath.taotaoparent}"/>
+  </path>
+  
+  <path id="taotaoparent.runtime.production.module.classpath">
+    <pathelement location="${taotaoparent.output.dir}"/>
+  </path>
+  
+  <path id="taotaoparent.module.classpath">
+    <path refid="${module.jdk.classpath.taotaoparent}"/>
+    <pathelement location="${taotaoparent.output.dir}"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+  </path>
+  
+  <path id="taotaoparent.runtime.module.classpath">
+    <pathelement location="${taotaoparent.testoutput.dir}"/>
+    <pathelement location="${taotaoparent.output.dir}"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.taotaoparent">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.taotaoparent">
+    <patternset refid="excluded.from.module.taotaoparent"/>
+  </patternset>
+  
+  <path id="taotaoparent.module.sourcepath">
+    <dirset dir="${module.taotaoparent.basedir}">
+      <include name="src/main/java"/>
+    </dirset>
+  </path>
+  
+  <path id="taotaoparent.module.test.sourcepath">
+    <dirset dir="${module.taotaoparent.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.taotaoparent" depends="compile.module.taotaoparent.production,compile.module.taotaoparent.tests" description="Compile module taotaoparent"/>
+  
+  <target name="compile.module.taotaoparent.production" depends="register.custom.compilers" description="Compile module taotaoparent; production classes">
+    <mkdir dir="${taotaoparent.output.dir}"/>
+    <javac2 destdir="${taotaoparent.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.taotaoparent}/javac">
+      <compilerarg line="${compiler.args.taotaoparent}"/>
+      <bootclasspath refid="taotaoparent.module.bootclasspath"/>
+      <classpath refid="taotaoparent.module.production.classpath"/>
+      <src refid="taotaoparent.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.taotaoparent"/>
+    </javac2>
+    
+    <copy todir="${taotaoparent.output.dir}">
+      <fileset dir="${module.taotaoparent.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.taotaoparent.tests" depends="register.custom.compilers,compile.module.taotaoparent.production" description="compile module taotaoparent; test classes" unless="skip.tests">
+    <mkdir dir="${taotaoparent.testoutput.dir}"/>
+    <javac2 destdir="${taotaoparent.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.taotaoparent}/javac">
+      <compilerarg line="${compiler.args.taotaoparent}"/>
+      <bootclasspath refid="taotaoparent.module.bootclasspath"/>
+      <classpath refid="taotaoparent.module.classpath"/>
+      <src refid="taotaoparent.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.taotaoparent"/>
+    </javac2>
+    
+    <copy todir="${taotaoparent.testoutput.dir}">
+      <fileset dir="${module.taotaoparent.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.taotaoparent" description="cleanup module">
+    <delete dir="${taotaoparent.output.dir}"/>
+    <delete dir="${taotaoparent.testoutput.dir}"/>
+  </target>
+</project>

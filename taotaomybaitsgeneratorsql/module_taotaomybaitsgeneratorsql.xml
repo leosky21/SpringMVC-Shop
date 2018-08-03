@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_taotaomybaitsgeneratorsql" default="compile.module.taotaomybaitsgeneratorsql">
+  <dirname property="module.taotaomybaitsgeneratorsql.basedir" file="${ant.file.module_taotaomybaitsgeneratorsql}"/>
+  
+  <property name="module.jdk.home.taotaomybaitsgeneratorsql" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.taotaomybaitsgeneratorsql" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.taotaomybaitsgeneratorsql" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.taotaomybaitsgeneratorsql" value="-encoding UTF-8 -source 7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="taotaomybaitsgeneratorsql.output.dir" value="${module.taotaomybaitsgeneratorsql.basedir}/target/classes"/>
+  <property name="taotaomybaitsgeneratorsql.testoutput.dir" value="${module.taotaomybaitsgeneratorsql.basedir}/target/test-classes"/>
+  
+  <path id="taotaomybaitsgeneratorsql.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="taotaomybaitsgeneratorsql.module.production.classpath">
+    <path refid="${module.jdk.classpath.taotaomybaitsgeneratorsql}"/>
+    <path refid="library.maven:_org.mybatis.generator:mybatis-generator-core:1.3.2.classpath"/>
+    <path refid="library.maven:_org.mybatis:mybatis:3.2.8.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-log4j12:1.6.4.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.6.4.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+  </path>
+  
+  <path id="taotaomybaitsgeneratorsql.runtime.production.module.classpath">
+    <pathelement location="${taotaomybaitsgeneratorsql.output.dir}"/>
+    <path refid="library.maven:_org.mybatis.generator:mybatis-generator-core:1.3.2.classpath"/>
+    <path refid="library.maven:_org.mybatis:mybatis:3.2.8.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-log4j12:1.6.4.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.6.4.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+  </path>
+  
+  <path id="taotaomybaitsgeneratorsql.module.classpath">
+    <path refid="${module.jdk.classpath.taotaomybaitsgeneratorsql}"/>
+    <pathelement location="${taotaomybaitsgeneratorsql.output.dir}"/>
+    <path refid="library.maven:_org.mybatis.generator:mybatis-generator-core:1.3.2.classpath"/>
+    <path refid="library.maven:_org.mybatis:mybatis:3.2.8.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-log4j12:1.6.4.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.6.4.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+  </path>
+  
+  <path id="taotaomybaitsgeneratorsql.runtime.module.classpath">
+    <pathelement location="${taotaomybaitsgeneratorsql.testoutput.dir}"/>
+    <pathelement location="${taotaomybaitsgeneratorsql.output.dir}"/>
+    <path refid="library.maven:_org.mybatis.generator:mybatis-generator-core:1.3.2.classpath"/>
+    <path refid="library.maven:_org.mybatis:mybatis:3.2.8.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-log4j12:1.6.4.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.6.4.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.16.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.taotaomybaitsgeneratorsql">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.taotaomybaitsgeneratorsql">
+    <patternset refid="excluded.from.module.taotaomybaitsgeneratorsql"/>
+  </patternset>
+  
+  <path id="taotaomybaitsgeneratorsql.module.sourcepath">
+    <dirset dir="${module.taotaomybaitsgeneratorsql.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="taotaomybaitsgeneratorsql.module.test.sourcepath">
+    <dirset dir="${module.taotaomybaitsgeneratorsql.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.taotaomybaitsgeneratorsql" depends="compile.module.taotaomybaitsgeneratorsql.production,compile.module.taotaomybaitsgeneratorsql.tests" description="Compile module taotaomybaitsgeneratorsql"/>
+  
+  <target name="compile.module.taotaomybaitsgeneratorsql.production" depends="register.custom.compilers" description="Compile module taotaomybaitsgeneratorsql; production classes">
+    <mkdir dir="${taotaomybaitsgeneratorsql.output.dir}"/>
+    <javac2 destdir="${taotaomybaitsgeneratorsql.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.taotaomybaitsgeneratorsql}/javac">
+      <compilerarg line="${compiler.args.taotaomybaitsgeneratorsql}"/>
+      <bootclasspath refid="taotaomybaitsgeneratorsql.module.bootclasspath"/>
+      <classpath refid="taotaomybaitsgeneratorsql.module.production.classpath"/>
+      <src refid="taotaomybaitsgeneratorsql.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.taotaomybaitsgeneratorsql"/>
+    </javac2>
+    
+    <copy todir="${taotaomybaitsgeneratorsql.output.dir}">
+      <fileset dir="${module.taotaomybaitsgeneratorsql.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.taotaomybaitsgeneratorsql.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.taotaomybaitsgeneratorsql.tests" depends="register.custom.compilers,compile.module.taotaomybaitsgeneratorsql.production" description="compile module taotaomybaitsgeneratorsql; test classes" unless="skip.tests">
+    <mkdir dir="${taotaomybaitsgeneratorsql.testoutput.dir}"/>
+    <javac2 destdir="${taotaomybaitsgeneratorsql.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.taotaomybaitsgeneratorsql}/javac">
+      <compilerarg line="${compiler.args.taotaomybaitsgeneratorsql}"/>
+      <bootclasspath refid="taotaomybaitsgeneratorsql.module.bootclasspath"/>
+      <classpath refid="taotaomybaitsgeneratorsql.module.classpath"/>
+      <src refid="taotaomybaitsgeneratorsql.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.taotaomybaitsgeneratorsql"/>
+    </javac2>
+    
+    <copy todir="${taotaomybaitsgeneratorsql.testoutput.dir}">
+      <fileset dir="${module.taotaomybaitsgeneratorsql.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.taotaomybaitsgeneratorsql" description="cleanup module">
+    <delete dir="${taotaomybaitsgeneratorsql.output.dir}"/>
+    <delete dir="${taotaomybaitsgeneratorsql.testoutput.dir}"/>
+  </target>
+</project>

@@ -1,0 +1,11 @@
+com/ray/mapper/TbOrderShippingMapper.class
+com/ray/mapper/TbContentMapper.class
+com/ray/mapper/TbOrderMapper.class
+com/ray/mapper/TbItemDescMapper.class
+com/ray/mapper/TbItemCatMapper.class
+com/ray/mapper/TbOrderItemMapper.class
+com/ray/mapper/TbItemMapper.class
+com/ray/mapper/TbItemParamMapper.class
+com/ray/mapper/TbItemParamItemMapper.class
+com/ray/mapper/TbContentCategoryMapper.class
+com/ray/mapper/TbUserMapper.class

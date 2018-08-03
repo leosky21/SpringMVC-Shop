@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/taotaocommon/taotaocommon.iml" filepath="$PROJECT_DIR$/taotaocommon/taotaocommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taotaomanager/taotaomanager.iml" filepath="$PROJECT_DIR$/taotaomanager/taotaomanager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taotaomanager/taotao-manager-mapper/taotaomanagermapper.iml" filepath="$PROJECT_DIR$/taotaomanager/taotao-manager-mapper/taotaomanagermapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taotaomanager/taotao-manager-pojo/taotaomanagerpojo.iml" filepath="$PROJECT_DIR$/taotaomanager/taotao-manager-pojo/taotaomanagerpojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taotaomanager/taotao-manager-service/taotaomanagerservice.iml" filepath="$PROJECT_DIR$/taotaomanager/taotao-manager-service/taotaomanagerservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taotaomanager/taotao-manager-web/taotaomanagerweb.iml" filepath="$PROJECT_DIR$/taotaomanager/taotao-manager-web/taotaomanagerweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taotaomybaitsgeneratorsql/taotaomybaitsgeneratorsql.iml" filepath="$PROJECT_DIR$/taotaomybaitsgeneratorsql/taotaomybaitsgeneratorsql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taotaoparent/taotaoparent.iml" filepath="$PROJECT_DIR$/taotaoparent/taotaoparent.iml" />
+    </modules>
+  </component>
+</project>

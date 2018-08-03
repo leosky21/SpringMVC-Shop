@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="taotao" default="all">
+  
+  
+  <property file="tao.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
+    <include name="*.ane"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="lib/ant-javafx.jar"/>
+      <include name="lib/dt.jar"/>
+      <include name="lib/javafx-mx.jar"/>
+      <include name="lib/jconsole.jar"/>
+      <include name="lib/packager.jar"/>
+      <include name="lib/sa-jdi.jar"/>
+      <include name="lib/tools.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.maven:_aopalliance:aopalliance:1.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.alibaba:druid:1.0.9.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/alibaba/druid/1.0.9/druid-1.0.9.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.fasterxml.jackson.core:jackson-annotations:2.4.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.fasterxml.jackson.core:jackson-core:2.4.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-core/2.4.2/jackson-core-2.4.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.fasterxml.jackson.core:jackson-databind:2.4.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-databind/2.4.2/jackson-databind-2.4.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.github.jsqlparser:jsqlparser:0.9.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/github/jsqlparser/jsqlparser/0.9.5/jsqlparser-0.9.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.github.miemiedev:mybatis-paginator:1.2.15.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/github/miemiedev/mybatis-paginator/1.2.15/mybatis-paginator-1.2.15.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.github.pagehelper:pagehelper:4.2.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/github/pagehelper/pagehelper/4.2.1/pagehelper-4.2.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-codec:commons-codec:1.6.classpath">
+    <pathelement location="${path.variable.maven_repository}/commons-codec/commons-codec/1.6/commons-codec-1.6.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-fileupload:commons-fileupload:1.3.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-io:commons-io:1.3.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-io:commons-io:2.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/commons-io/commons-io/2.2/commons-io-2.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-logging:commons-logging:1.1.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-logging:commons-logging:1.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-net:commons-net:3.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/commons-net/commons-net/3.3/commons-net-3.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.servlet:jsp-api:2.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/servlet/jsp-api/2.0/jsp-api-2.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.servlet:servlet-api:2.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_joda-time:joda-time:2.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/joda-time/joda-time/2.5/joda-time-2.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_jstl:jstl:1.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/jstl/jstl/1.2/jstl-1.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_junit:junit:4.11.classpath">
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.11/junit-4.11.jar"/>
+  </path>
+  
+  <path id="library.maven:_junit:junit:4.12.classpath">
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.12/junit-4.12.jar"/>
+  </path>
+  
+  <path id="library.maven:_log4j:log4j:1.2.16.classpath">
+    <pathelement location="${path.variable.maven_repository}/log4j/log4j/1.2.16/log4j-1.2.16.jar"/>
+  </path>
+  
+  <path id="library.maven:_mysql:mysql-connector-java:5.1.32.classpath">
+    <pathelement location="${path.variable.maven_repository}/mysql/mysql-connector-java/5.1.32/mysql-connector-java-5.1.32.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.commons:commons-lang3:3.3.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.httpcomponents:httpclient:4.3.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/httpcomponents/httpclient/4.3.5/httpclient-4.3.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.httpcomponents:httpcore:4.3.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/httpcomponents/httpcore/4.3.2/httpcore-4.3.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.aspectj:aspectjweaver:1.8.4.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/aspectj/aspectjweaver/1.8.4/aspectjweaver-1.8.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.mybatis.generator:mybatis-generator-core:1.3.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/mybatis/generator/mybatis-generator-core/1.3.2/mybatis-generator-core-1.3.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.mybatis:mybatis-spring:1.2.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/mybatis/mybatis-spring/1.2.3/mybatis-spring-1.2.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.mybatis:mybatis:3.2.8.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/mybatis/mybatis/3.2.8/mybatis-3.2.8.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.slf4j:slf4j-api:1.6.4.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.slf4j:slf4j-api:1.7.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.slf4j:slf4j-log4j12:1.6.4.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/slf4j/slf4j-log4j12/1.6.4/slf4j-log4j12-1.6.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-aop:4.1.3.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-aop/4.1.3.RELEASE/spring-aop-4.1.3.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-aspects:4.1.3.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-aspects/4.1.3.RELEASE/spring-aspects-4.1.3.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-beans:4.1.3.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-beans/4.1.3.RELEASE/spring-beans-4.1.3.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-context:4.1.3.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-context/4.1.3.RELEASE/spring-context-4.1.3.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-core:4.1.3.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-core/4.1.3.RELEASE/spring-core-4.1.3.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-expression:4.1.3.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-expression/4.1.3.RELEASE/spring-expression-4.1.3.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-jdbc:4.1.3.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-jdbc/4.1.3.RELEASE/spring-jdbc-4.1.3.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-tx:4.1.3.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-tx/4.1.3.RELEASE/spring-tx-4.1.3.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-web:4.1.3.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-web/4.1.3.RELEASE/spring-web-4.1.3.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-webmvc:4.1.3.release.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/springframework/spring-webmvc/4.1.3.RELEASE/spring-webmvc-4.1.3.RELEASE.jar"/>
+  </path>
+  
+  
+  <!-- Application Server Libraries -->
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/taotaocommon/module_taotaocommon.xml"/>
+  
+  <import file="${basedir}/taotaomybaitsgeneratorsql/module_taotaomybaitsgeneratorsql.xml"/>
+  
+  <import file="${basedir}/taotaoparent/module_taotaoparent.xml"/>
+  
+  <import file="${basedir}/taotaomanager/module_taotaomanager.xml"/>
+  
+  <import file="${basedir}/taotaomanager/taotao-manager-pojo/module_taotaomanagerpojo.xml"/>
+  
+  <import file="${basedir}/taotaomanager/taotao-manager-mapper/module_taotaomanagermapper.xml"/>
+  
+  <import file="${basedir}/taotaomanager/taotao-manager-service/module_taotaomanagerservice.xml"/>
+  
+  <import file="${basedir}/taotaomanager/taotao-manager-web/module_taotaomanagerweb.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.taotaocommon, clean.module.taotaomybaitsgeneratorsql, clean.module.taotaoparent, clean.module.taotaomanager, clean.module.taotaomanagerpojo, clean.module.taotaomanagermapper, clean.module.taotaomanagerservice, clean.module.taotaomanagerweb, clean.artifact.taotaomanager:war_exploded, clean.artifact.taotaomanagerweb:war_exploded" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.taotaocommon, compile.module.taotaomybaitsgeneratorsql, compile.module.taotaoparent, compile.module.taotaomanager, compile.module.taotaomanagerpojo, compile.module.taotaomanagermapper, compile.module.taotaomanagerservice, compile.module.taotaomanagerweb" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.taotaomanager:war" value="${basedir}/taotaomanager/target"/>
+    <property name="artifact.output.taotaomanager:war_exploded" value="${basedir}/taotaomanager/target/taotao-manager"/>
+    <property name="artifact.output.taotaomanagerweb:war" value="${basedir}/taotaomanager/taotao-manager-web/target"/>
+    <property name="artifact.output.taotaomanagerweb:war_exploded" value="${basedir}/taotaomanager/taotao-manager-web/target/taotao-manager-web"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.taotao-manager.war" value="${artifacts.temp.dir}/taotao-manager.war"/>
+    <property name="temp.jar.path.taotao-common-0.0.1-SNAPSHOT.jar" value="${artifacts.temp.dir}/taotao-common-0.0.1-SNAPSHOT.jar"/>
+    <property name="temp.jar.path.taotao-manager-web.war" value="${artifacts.temp.dir}/taotao-manager-web.war"/>
+    <property name="temp.jar.path.taotao-manager-service-0.0.1-SNAPSHOT.jar" value="${artifacts.temp.dir}/taotao-manager-service-0.0.1-SNAPSHOT.jar"/>
+    <property name="temp.jar.path.taotao-manager-mapper-0.0.1-SNAPSHOT.jar" value="${artifacts.temp.dir}/taotao-manager-mapper-0.0.1-SNAPSHOT.jar"/>
+    <property name="temp.jar.path.taotao-manager-pojo-0.0.1-SNAPSHOT.jar" value="${artifacts.temp.dir}/taotao-manager-pojo-0.0.1-SNAPSHOT.jar"/>
+    <property name="temp.jar.path.taotao-mybaits-generatorsql-1.0.0-SNAPSHOT.jar" value="${artifacts.temp.dir}/taotao-mybaits-generatorsql-1.0.0-SNAPSHOT.jar"/>
+    <property name="temp.jar.path.taotao-common-0.0.1-SNAPSHOT.jar2" value="${artifacts.temp.dir}/1/taotao-common-0.0.1-SNAPSHOT.jar"/>
+    <mkdir dir="${artifacts.temp.dir}/1"/>
+  </target>
+  
+  <target name="clean.artifact.taotaomanager:war_exploded" description="clean taotaomanager:war exploded artifact output">
+    <delete dir="${artifact.output.taotaomanager:war_exploded}"/>
+  </target>
+  
+  <target name="clean.artifact.taotaomanagerweb:war_exploded" description="clean taotaomanagerweb:war exploded artifact output">
+    <delete dir="${artifact.output.taotaomanagerweb:war_exploded}"/>
+  </target>
+  
+  <target name="artifact.taotaomanager:war" depends="init.artifacts, artifact.taotaomanager:war_exploded" description="Build &#39;taotaomanager:war&#39; artifact">
+    <property name="artifact.temp.output.taotaomanager:war" value="${artifacts.temp.dir}/taotaomanager_war"/>
+    <mkdir dir="${artifact.temp.output.taotaomanager:war}"/>
+    <zip destfile="${temp.jar.path.taotao-manager.war}">
+      <zipfileset dir="${artifact.output.taotaomanager:war_exploded}"/>
+    </zip>
+    <copy file="${temp.jar.path.taotao-manager.war}" tofile="${artifact.temp.output.taotaomanager:war}/taotao-manager.war"/>
+  </target>
+  
+  <target name="artifact.taotaomanager:war_exploded" depends="init.artifacts, compile.module.taotaomanager, compile.module.taotaocommon" description="Build &#39;taotaomanager:war exploded&#39; artifact">
+    <mkdir dir="${artifact.output.taotaomanager:war_exploded}"/>
+    <jar destfile="${temp.jar.path.taotao-common-0.0.1-SNAPSHOT.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${taotaocommon.output.dir}"/>
+    </jar>
+    <mkdir dir="${artifact.output.taotaomanager:war_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.taotaomanager:war_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.taotaomanager:war_exploded}/WEB-INF/classes">
+      <fileset dir="${taotaomanager.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib"/>
+    <copy file="${temp.jar.path.taotao-common-0.0.1-SNAPSHOT.jar}" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/taotao-common-0.0.1-SNAPSHOT.jar"/>
+    <copy file="${path.variable.maven_repository}/joda-time/joda-time/2.5/joda-time-2.5.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/joda-time-2.5.jar"/>
+    <copy file="${path.variable.maven_repository}/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/commons-lang3-3.3.2.jar"/>
+    <copy file="${path.variable.maven_repository}/commons-io/commons-io/1.3.2/commons-io-1.3.2.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/commons-io-1.3.2.jar"/>
+    <copy file="${path.variable.maven_repository}/commons-net/commons-net/3.3/commons-net-3.3.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/commons-net-3.3.jar"/>
+    <copy file="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-databind/2.4.2/jackson-databind-2.4.2.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/jackson-databind-2.4.2.jar"/>
+    <copy file="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/jackson-annotations-2.4.0.jar"/>
+    <copy file="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-core/2.4.2/jackson-core-2.4.2.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/jackson-core-2.4.2.jar"/>
+    <copy file="${path.variable.maven_repository}/org/apache/httpcomponents/httpclient/4.3.5/httpclient-4.3.5.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/httpclient-4.3.5.jar"/>
+    <copy file="${path.variable.maven_repository}/org/apache/httpcomponents/httpcore/4.3.2/httpcore-4.3.2.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/httpcore-4.3.2.jar"/>
+    <copy file="${path.variable.maven_repository}/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/commons-logging-1.1.3.jar"/>
+    <copy file="${path.variable.maven_repository}/commons-codec/commons-codec/1.6/commons-codec-1.6.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/commons-codec-1.6.jar"/>
+    <copy file="${path.variable.maven_repository}/org/slf4j/slf4j-log4j12/1.6.4/slf4j-log4j12-1.6.4.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/slf4j-log4j12-1.6.4.jar"/>
+    <copy file="${path.variable.maven_repository}/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/slf4j-api-1.6.4.jar"/>
+    <copy file="${path.variable.maven_repository}/log4j/log4j/1.2.16/log4j-1.2.16.jar" tofile="${artifact.output.taotaomanager:war_exploded}/WEB-INF/lib/log4j-1.2.16.jar"/>
+    <mkdir dir="${artifact.output.taotaomanager:war_exploded}/META-INF"/>
+    <copy file="${basedir}/taotaomanager/target/taotao-manager/META-INF/MANIFEST.MF" tofile="${artifact.output.taotaomanager:war_exploded}/META-INF/MANIFEST.MF"/>
+    <copy todir="${artifact.output.taotaomanager:war_exploded}">
+      <fileset dir="${basedir}/taotaomanager/src/main/webapp"/>
+    </copy>
+  </target>
+  
+  <target name="artifact.taotaomanagerweb:war" depends="init.artifacts, artifact.taotaomanagerweb:war_exploded" description="Build &#39;taotaomanagerweb:war&#39; artifact">
+    <property name="artifact.temp.output.taotaomanagerweb:war" value="${artifacts.temp.dir}/taotaomanagerweb_war"/>
+    <mkdir dir="${artifact.temp.output.taotaomanagerweb:war}"/>
+    <zip destfile="${temp.jar.path.taotao-manager-web.war}">
+      <zipfileset dir="${artifact.temp.output.taotaomanagerweb:war_exploded}"/>
+    </zip>
+    <copy file="${temp.jar.path.taotao-manager-web.war}" tofile="${artifact.temp.output.taotaomanagerweb:war}/taotao-manager-web.war"/>
+  </target>
+  
+  <target name="artifact.taotaomanagerweb:war_exploded" depends="init.artifacts, compile.module.taotaomanagerweb, compile.module.taotaomanagerservice, compile.module.taotaomanagermapper, compile.module.taotaomanagerpojo, compile.module.taotaomybaitsgeneratorsql, compile.module.taotaocommon" description="Build &#39;taotaomanagerweb:war exploded&#39; artifact">
+    <mkdir dir="${artifact.output.taotaomanagerweb:war_exploded}"/>
+    <jar destfile="${temp.jar.path.taotao-manager-service-0.0.1-SNAPSHOT.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${taotaomanagerservice.output.dir}"/>
+    </jar>
+    <jar destfile="${temp.jar.path.taotao-manager-mapper-0.0.1-SNAPSHOT.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${taotaomanagermapper.output.dir}"/>
+    </jar>
+    <jar destfile="${temp.jar.path.taotao-manager-pojo-0.0.1-SNAPSHOT.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${taotaomanagerpojo.output.dir}"/>
+    </jar>
+    <jar destfile="${temp.jar.path.taotao-mybaits-generatorsql-1.0.0-SNAPSHOT.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${taotaomybaitsgeneratorsql.output.dir}"/>
+    </jar>
+    <jar destfile="${temp.jar.path.taotao-common-0.0.1-SNAPSHOT.jar2}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${taotaocommon.output.dir}"/>
+    </jar>
+    <mkdir dir="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/classes">
+      <fileset dir="${taotaomanagerweb.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib"/>
+    <copy file="${temp.jar.path.taotao-manager-service-0.0.1-SNAPSHOT.jar}" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/taotao-manager-service-0.0.1-SNAPSHOT.jar"/>
+    <copy file="${temp.jar.path.taotao-manager-mapper-0.0.1-SNAPSHOT.jar}" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/taotao-manager-mapper-0.0.1-SNAPSHOT.jar"/>
+    <copy file="${temp.jar.path.taotao-manager-pojo-0.0.1-SNAPSHOT.jar}" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/taotao-manager-pojo-0.0.1-SNAPSHOT.jar"/>
+    <copy file="${path.variable.maven_repository}/org/mybatis/mybatis/3.2.8/mybatis-3.2.8.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/mybatis-3.2.8.jar"/>
+    <copy file="${path.variable.maven_repository}/org/mybatis/mybatis-spring/1.2.3/mybatis-spring-1.2.3.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/mybatis-spring-1.2.3.jar"/>
+    <copy file="${path.variable.maven_repository}/com/github/miemiedev/mybatis-paginator/1.2.15/mybatis-paginator-1.2.15.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/mybatis-paginator-1.2.15.jar"/>
+    <copy file="${path.variable.maven_repository}/com/github/pagehelper/pagehelper/4.2.1/pagehelper-4.2.1.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/pagehelper-4.2.1.jar"/>
+    <copy file="${path.variable.maven_repository}/com/github/jsqlparser/jsqlparser/0.9.5/jsqlparser-0.9.5.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/jsqlparser-0.9.5.jar"/>
+    <copy file="${path.variable.maven_repository}/mysql/mysql-connector-java/5.1.32/mysql-connector-java-5.1.32.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/mysql-connector-java-5.1.32.jar"/>
+    <copy file="${path.variable.maven_repository}/com/alibaba/druid/1.0.9/druid-1.0.9.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/druid-1.0.9.jar"/>
+    <copy file="${temp.jar.path.taotao-mybaits-generatorsql-1.0.0-SNAPSHOT.jar}" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/taotao-mybaits-generatorsql-1.0.0-SNAPSHOT.jar"/>
+    <copy file="${path.variable.maven_repository}/org/mybatis/generator/mybatis-generator-core/1.3.2/mybatis-generator-core-1.3.2.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/mybatis-generator-core-1.3.2.jar"/>
+    <copy file="${path.variable.maven_repository}/org/springframework/spring-context/4.1.3.RELEASE/spring-context-4.1.3.RELEASE.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/spring-context-4.1.3.RELEASE.jar"/>
+    <copy file="${path.variable.maven_repository}/org/springframework/spring-aop/4.1.3.RELEASE/spring-aop-4.1.3.RELEASE.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/spring-aop-4.1.3.RELEASE.jar"/>
+    <copy file="${path.variable.maven_repository}/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/aopalliance-1.0.jar"/>
+    <copy file="${path.variable.maven_repository}/org/springframework/spring-core/4.1.3.RELEASE/spring-core-4.1.3.RELEASE.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/spring-core-4.1.3.RELEASE.jar"/>
+    <copy file="${path.variable.maven_repository}/org/springframework/spring-expression/4.1.3.RELEASE/spring-expression-4.1.3.RELEASE.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/spring-expression-4.1.3.RELEASE.jar"/>
+    <copy file="${path.variable.maven_repository}/org/springframework/spring-beans/4.1.3.RELEASE/spring-beans-4.1.3.RELEASE.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/spring-beans-4.1.3.RELEASE.jar"/>
+    <copy file="${path.variable.maven_repository}/org/springframework/spring-webmvc/4.1.3.RELEASE/spring-webmvc-4.1.3.RELEASE.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/spring-webmvc-4.1.3.RELEASE.jar"/>
+    <copy file="${path.variable.maven_repository}/org/springframework/spring-web/4.1.3.RELEASE/spring-web-4.1.3.RELEASE.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/spring-web-4.1.3.RELEASE.jar"/>
+    <copy file="${path.variable.maven_repository}/org/springframework/spring-jdbc/4.1.3.RELEASE/spring-jdbc-4.1.3.RELEASE.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/spring-jdbc-4.1.3.RELEASE.jar"/>
+    <copy file="${path.variable.maven_repository}/org/springframework/spring-tx/4.1.3.RELEASE/spring-tx-4.1.3.RELEASE.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/spring-tx-4.1.3.RELEASE.jar"/>
+    <copy file="${path.variable.maven_repository}/org/springframework/spring-aspects/4.1.3.RELEASE/spring-aspects-4.1.3.RELEASE.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/spring-aspects-4.1.3.RELEASE.jar"/>
+    <copy file="${path.variable.maven_repository}/org/aspectj/aspectjweaver/1.8.4/aspectjweaver-1.8.4.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/aspectjweaver-1.8.4.jar"/>
+    <copy file="${path.variable.maven_repository}/jstl/jstl/1.2/jstl-1.2.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/jstl-1.2.jar"/>
+    <copy file="${path.variable.maven_repository}/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/commons-fileupload-1.3.1.jar"/>
+    <copy file="${path.variable.maven_repository}/commons-io/commons-io/2.2/commons-io-2.2.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/commons-io-2.2.jar"/>
+    <copy file="${temp.jar.path.taotao-common-0.0.1-SNAPSHOT.jar2}" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/taotao-common-0.0.1-SNAPSHOT.jar"/>
+    <copy file="${path.variable.maven_repository}/joda-time/joda-time/2.5/joda-time-2.5.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/joda-time-2.5.jar"/>
+    <copy file="${path.variable.maven_repository}/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/commons-lang3-3.3.2.jar"/>
+    <copy file="${path.variable.maven_repository}/commons-net/commons-net/3.3/commons-net-3.3.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/commons-net-3.3.jar"/>
+    <copy file="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-databind/2.4.2/jackson-databind-2.4.2.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/jackson-databind-2.4.2.jar"/>
+    <copy file="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-annotations/2.4.0/jackson-annotations-2.4.0.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/jackson-annotations-2.4.0.jar"/>
+    <copy file="${path.variable.maven_repository}/com/fasterxml/jackson/core/jackson-core/2.4.2/jackson-core-2.4.2.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/jackson-core-2.4.2.jar"/>
+    <copy file="${path.variable.maven_repository}/org/apache/httpcomponents/httpclient/4.3.5/httpclient-4.3.5.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/httpclient-4.3.5.jar"/>
+    <copy file="${path.variable.maven_repository}/org/apache/httpcomponents/httpcore/4.3.2/httpcore-4.3.2.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/httpcore-4.3.2.jar"/>
+    <copy file="${path.variable.maven_repository}/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/commons-logging-1.1.3.jar"/>
+    <copy file="${path.variable.maven_repository}/commons-codec/commons-codec/1.6/commons-codec-1.6.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/commons-codec-1.6.jar"/>
+    <copy file="${path.variable.maven_repository}/org/slf4j/slf4j-log4j12/1.6.4/slf4j-log4j12-1.6.4.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/slf4j-log4j12-1.6.4.jar"/>
+    <copy file="${path.variable.maven_repository}/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/slf4j-api-1.6.4.jar"/>
+    <copy file="${path.variable.maven_repository}/log4j/log4j/1.2.16/log4j-1.2.16.jar" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/lib/log4j-1.2.16.jar"/>
+    <mkdir dir="${artifact.output.taotaomanagerweb:war_exploded}/META-INF"/>
+    <copy file="${basedir}/taotaomanager/taotao-manager-web/target/taotao-manager-web/META-INF/MANIFEST.MF" tofile="${artifact.output.taotaomanagerweb:war_exploded}/META-INF/MANIFEST.MF"/>
+    <copy todir="${artifact.output.taotaomanagerweb:war_exploded}">
+      <fileset dir="${basedir}/taotaomanager/taotao-manager-web/src/main/webapp"/>
+    </copy>
+    <mkdir dir="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF"/>
+    <copy file="${basedir}/taotaomanager/taotao-manager-web/src/main/webapp/WEB-INF/web.xml" tofile="${artifact.output.taotaomanagerweb:war_exploded}/WEB-INF/web.xml"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.taotaomanager:war, artifact.taotaomanager:war_exploded, artifact.taotaomanagerweb:war, artifact.taotaomanagerweb:war_exploded" description="Build all artifacts">
+    <mkdir dir="${artifact.output.taotaomanager:war}"/>
+    <copy todir="${artifact.output.taotaomanager:war}">
+      <fileset dir="${artifact.temp.output.taotaomanager:war}"/>
+    </copy>
+    <mkdir dir="${artifact.output.taotaomanagerweb:war}"/>
+    <copy todir="${artifact.output.taotaomanagerweb:war}">
+      <fileset dir="${artifact.temp.output.taotaomanagerweb:war}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
